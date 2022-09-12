@@ -1,0 +1,254 @@
+/*================================================================================
+	Item Name: Modern Admin - Clean Bootstrap 4 Dashboard HTML Template
+	Version: 1.0
+	Author: PIXINVENT
+	Author URL: http://www.themeforest.net/user/pixinvent
+================================================================================
+
+NOTE:
+------
+PLACE HERE YOUR OWN SCSS CODES AND IF NEEDED, OVERRIDE THE STYLES FROM THE OTHER STYLESHEETS.
+WE WILL RELEASE FUTURE UPDATES SO IN ORDER TO NOT OVERWRITE YOUR STYLES IT'S BETTER LIKE THIS.  */
+.image-in-table-cell {
+    max-width: 50px;
+}
+
+.table-special-padding .table td {
+    padding: 0.75rem 1rem;
+}
+
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 49px;
+    height: 21px;
+}
+
+/* Hide default HTML checkbox */
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+/* The slider */
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 15px;
+    width: 15px;
+    left: 4px;
+    bottom: 3px;
+    background-color: white;
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+
+input:checked + .slider {
+    background-color: #2196F3;
+}
+
+input:focus + .slider {
+    box-shadow: 0 0 1px #2196F3;
+}
+
+input:checked + .slider:before {
+    -webkit-transform: translateX(26px);
+    -ms-transform: translateX(26px);
+    transform: translateX(26px);
+}
+
+/* Rounded sliders */
+.slider.round {
+    border-radius: 34px;
+}
+
+.slider.round:before {
+    border-radius: 50%;
+}
+
+.btn-outline-primary {
+    border-color: #388a3c;
+    background-color: transparent;
+    color: #388a3c;
+}
+
+.btn-outline-primary:hover {
+    background-color: rgba(56, 138, 60, 0.56);
+    border-color: rgba(56, 138, 60, 0.56);
+}
+
+.btn-outline-primary:not(:disabled):not(.disabled):active {
+    background-color: rgba(56, 138, 60, 0.56);
+    border-color: #388a3c;
+}
+
+.servicesBox {
+    padding: 10px;
+    border: 0.01em #d2d2d2 solid;
+}
+
+.box {
+    border: 1px solid transparent;
+    box-sizing: border-box;
+    background-clip: padding-box;
+}
+
+.theme-page-image {
+    max-height: 340px;
+    width: 100%;
+    object-fit: cover;
+    object-position: top;
+    border: 1px solid #ddd;
+    padding: 15px
+}
+
+.theme-con {
+    /* margin: 5px 15px 15px 15px; */
+    padding: 15px 15px 0 15px;
+    border: 1px solid #ddd;
+}
+
+.theme-con img {
+    height: 200px;
+}
+
+.btn-gey {
+    background: #ddd;
+    color: #333333
+}
+
+.btn-blue {
+    color: #ffffff !important;
+}
+
+/*11/28/2021*/
+.icon-act{
+	 position: relative;
+}
+.icon-act i{
+	font-size: 35px;
+    margin: 0 0 5px 0;
+}
+.icon-two{
+	position: absolute;
+    left: 15px;
+    top: 15px;
+}
+.icon-two i{
+	font-size: 68px !important;
+    color: #000;
+    opacity: .2;
+    transform: rotateZ(318deg);
+}
+
+.my-tab .nav.nav-tabs.nav-underline .nav-item a{
+	font-weight: 700
+}
+.my-tab .nav.nav-tabs.nav-underline .nav-item a.nav-link {
+    color: #128dc2;
+}
+.my-tab .nav.nav-tabs.nav-underline {
+    border-bottom: 1px solid #128dc2;
+}
+.my-tab .nav.nav-tabs.nav-underline .nav-item a.nav-link:before {
+    background: #128dc2;
+}
+.my-tab .nav.nav-tabs.nav-underline .nav-item {
+
+    padding: 20px 0;
+}
+.my-tab .nav.nav-tabs.nav-underline .nav-item a.nav-link.active {
+    border: none;
+    background: #128dc2;
+    color: #fff!important;
+    border-radius: 0;
+}
+.my-nav .collapse-icon.accordion-icon-rotate a[aria-expanded="true"]:before, .my-nav .collapse-icon a[data-toggle="collapse"]:after, .my-nav .collapse-icon a[data-toggle="collapse"]:before{
+	display: none 
+}
+.my-nav .nav-tabs {
+    padding: 15px;
+    border: 1px solid #e3ebf3;
+    border-bottom: 1px solid #e3ebf3 !important;
+}
+
+.my-nav .nav-left.nav-tabs li.nav-item a.nav-link{
+	font-size: 17px;
+	min-width: 14.5rem;
+}
+
+.my-nav .nav-left.nav-tabs li.nav-item a.nav-link.active {
+    border: none;
+    border-right: 0;
+    color: #ffffff;
+    border-radius: 0;
+    background: #128dc2;
+}
+.my-nav .nav-left.nav-tabs li.nav-item a.nav-link.active:hover {
+	border-bottom: none 
+}
+.my-nav .nav-left.nav-tabs li.nav-item a.nav-link {
+    color: #525252;
+    border-right: none;
+    border-bottom: 1px dashed #e3ebf3;
+}
+.nav-tabs .nav-link {
+    border: 1px solid transparent;
+}
+.my-nav .nav-left.nav-tabs li.nav-item a.nav-link:hover:not(.active) {
+    border-right: none;
+}
+.my-nav .nav-left.nav-tabs li.nav-item a.nav-link:hover{
+	border-bottom: 1px dashed #e3ebf3;
+	border-bottom-color: #e3ebf3 !important;
+}
+
+.my-nav .nav-left.nav-tabs li.nav-item:last-child a{
+	border-bottom: none
+}
+.my-nav .page-item.active .page-link {
+    background-color: #7a7a7a;
+    border-color: #787878;
+}
+.my-nav .pagination .page-link {
+    color: #7a7a7a;
+    border: 1px solid #BABFC7;
+}
+.my-nav .page-item.active .page-link {
+    color: #fff;
+}
+.my-nav .page-link:hover {
+    color: #ffffff;
+    background-color: #7a7a7a;
+}
+
+.bg-info {
+    background-color: #128dc2 !important;
+}
+
+
+@media (max-width: 767px){
+	.my-tab .nav.nav-tabs.nav-underline .nav-item {
+		min-width:inherit;
+		-webkit-flex: 1;
+		-moz-flex: 1;
+		-ms-flex: 1;
+		flex: 1;
+	}
+}
+
+
+

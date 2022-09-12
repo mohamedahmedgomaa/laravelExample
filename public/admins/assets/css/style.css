@@ -1,0 +1,44 @@
+/*================================================================================
+	Item Name: Modern Admin - Clean Bootstrap 4 Dashboard HTML Template
+	Version: 1.0
+	Author: PIXINVENT
+	Author URL: http://www.themeforest.net/user/pixinvent
+================================================================================
+
+NOTE:
+------
+PLACE HERE YOUR OWN SCSS CODES AND IF NEEDED, OVERRIDE THE STYLES FROM THE OTHER STYLESHEETS.
+WE WILL RELEASE FUTURE UPDATES SO IN ORDER TO NOT OVERWRITE YOUR STYLES IT'S BETTER LIKE THIS.  */
+
+
+.image-in-table-cell {
+    max-width: 50px;
+}
+
+.table-special-padding .table td {
+    padding: 0.75rem 1rem;
+}
+
+.card-body .card-section {
+    color: #2C303B;
+    line-height: 3rem;
+    margin-bottom: 20px;
+    border-bottom: 1px solid #2C303B;
+}
+
+.cursor-pointer {
+    cursor: pointer;
+}
+
+.nonForm.form-section {
+    color: #2C303B;
+    line-height: 3rem;
+    margin-bottom: 20px;
+    border-bottom: 1px solid #2C303B;
+}
+
+.myModalStyle {
+    max-height: calc(100vh);
+    overflow-y: auto;
+    background-color: #22222255;
+}
