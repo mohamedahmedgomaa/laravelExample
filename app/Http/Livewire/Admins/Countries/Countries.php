@@ -2,21 +2,22 @@
 
 namespace App\Http\Livewire\Admins\Countries;
 
+use App\Http\Requests\Admin\CountryRequest;
+use App\Http\Traits\Admins\CountryTrait;
 use App\Models\Country;
 use Livewire\Component;
 use Livewire\WithPagination;
 
 class Countries extends Component
 {
+    use WithPagination, CountryTrait;
 
-    use WithPagination;
-
-    public $name_ar, $name_en, $code, $phone_length, $Id,  $showEditModal = false;
-    public $showDeleteModal = false,  $search,  $sortField, $sortAsc = true, $lang = 'en';
+    public $name_ar, $name_en, $code, $phone_length, $Id, $showEditModal = false;
+    public $showDeleteModal = false, $search, $sortField, $sortAsc = true, $lang = 'en';
 
     protected $queryString = ['search', 'sortField', 'sortAsc'];
     protected $paginationTheme = 'bootstrap';
-    protected $listeners = ['closemodel' => 'closemodal'];
+    protected $listeners = ['closemodel' => 'closeModal'];
 
     protected $rules = [
         'name_ar' => 'required|regex:/(^([.-9ء0-ي\s]+)(\d+)?$)/u',
@@ -28,6 +29,7 @@ class Countries extends Component
     private function resetForm()
     {
         $this->resetValidation();
+        $this->Id = "";
         $this->name_ar = "";
         $this->name_en = "";
         $this->code = "";
@@ -37,16 +39,9 @@ class Countries extends Component
     public function create()
     {
         $data = $this->validate();
-        Country::create([
-            'ar' => [
-                'name' => $data['name_ar'],
-            ],
-            'en' => [
-                'name' => $data['name_en'],
-            ],
-            'code' => $data['code'],
-            'phone_length' => $data['phone_length'],
-        ]);
+
+        $this->countryCreate($data);
+
         $this->resetForm();
         $this->render();
     }
@@ -56,7 +51,7 @@ class Countries extends Component
         $this->resetValidation();
         $this->showEditModal = true;
         $this->Id = $id;
-        $item = Country::findOrFail($this->Id);
+        $item = Country::find($this->Id);
         $this->name_ar = $item->{'name:ar'};
         $this->name_en = $item->{'name:en'};
         $this->code = $item->{'code'};
@@ -67,20 +62,11 @@ class Countries extends Component
     public function update()
     {
         $data = $this->validate();
-        $item = Country::find($this->Id);
-        $item->update([
-            'ar' => [
-                'name' => $data['name_ar'],
-            ],
-            'en' => [
-                'name' => $data['name_en'],
-            ],
-            'code' => $data['code'],
-            'phone_length' => $data['phone_length'],
-        ]);
+
+        $this->countryUpdate($data,$this->Id);
+
         $this->resetForm();
-        $this->emit('updatesurvise');
-        $this->Id;
+
         $this->showEditModal = false;
         $this->render();
     }
@@ -95,15 +81,15 @@ class Countries extends Component
     public function destroy()
     {
         Country::destroy($this->Id);
-        $this->Id;
+        $this->Id = '';
         $this->showDeleteModal = false;
         $this->render();
     }
 
-    public function closemodal()
+    public function closeModal()
     {
         $this->resetValidation();
-        $this->Id;
+        $this->Id = '';
         $this->showEditModal = false;
         $this->showDeleteModal = false;
         $this->resetForm();
@@ -120,13 +106,10 @@ class Countries extends Component
         }
         $this->sortField = $field;
     }
+
     public function render()
     {
-        $items = Country::whereTranslationLike('name', '%' . $this->search . '%')
-            ->when($this->sortField, function ($query) {
-                $query->translatedIn($this->lang)->orderByTranslation($this->sortField, $this->sortAsc ? 'asc' : 'desc');
-            })
-            ->paginate(10);
+        $items = $this->index();
 
         return view('livewire.admins.countries.countries', [
             'items' => $items,
